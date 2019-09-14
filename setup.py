@@ -23,6 +23,8 @@ def set_up_cython_extension():
     extensions = [
         Extension('pygncd', sourcefiles,
                   include_dirs=extra_include_path,
+                  extra_compile_flags='/Zi',
+                  extra_link_flags='/DEBUG'
                  )
     ]
     return cythonize(extensions)
