@@ -3,6 +3,5 @@ __pycache__
 *.so
 *.pyd
 *.pdb
-pygncd.egg-info
-pygncd.c
+GN.egg-info
 dist

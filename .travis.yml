@@ -1,28 +1,7 @@
-matrix:
-  include:
-  - os: linux
-    dist: xenial
-    language: python
-    python: 3.6
-    services: docker
-    env: DOCKER_IMAGE=zhaofengshu33/lemon:v2
-  - os: osx
-    osx_image: xcode10.2
-  - os: osx
-    osx_image: xcode9.4    
-install:
-  - |
-    if [ "$TRAVIS_OS_NAME" == "osx" ]; then
-       sudo python3 -m pip install -r requirements.txt
-    else
-       pip install twine
-    fi
-      
+os: linux
+dist: xenial
+language: python
+python: 3.6
 script:
-  - |
-    if [ "$TRAVIS_OS_NAME" == "osx" ]; then
-       ./build.sh
-    else
-       docker run -v `pwd`:/code $DOCKER_IMAGE /bin/bash -c 'cd /code; ./build_manylinux.sh' 
-    fi
-  - ./deploy.sh
+  - python setup.py install
+  - python test/test_GN.py
