@@ -9,7 +9,7 @@ setup(
     name='GN',
     version='0.1',
     author="zhaofeng-shu33",
-    install_requires=['networkx'],
+    install_requires=['networkx', 'pygncd'],
     author_email="616545598@qq.com",
     packages = find_packages(),
     description="a hierachical community detection algorithm by Girvan Newman",
